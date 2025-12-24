@@ -1,12 +1,8 @@
 from __future__ import annotations
-
 from dataclasses import dataclass
-from typing import Any
-
 import structlog
 
 logger = structlog.get_logger(__name__)
-
 
 @dataclass
 class Inventory:
@@ -18,22 +14,14 @@ class Inventory:
     def update(self, yes_delta: float, no_delta: float, price: float):
         self.yes_position += yes_delta
         self.no_position += no_delta
-        
-        yes_value = self.yes_position * price
-        no_value = self.no_position * (1.0 - price)
-        
-        self.net_exposure_usd = yes_value - no_value
-        self.total_value_usd = yes_value + no_value
+        yes_val = self.yes_position * price
+        no_val = self.no_position * (1.0 - price)
+        self.net_exposure_usd = yes_val - no_val
+        self.total_value_usd = yes_val + no_val
 
-    def get_skew(self) -> float:
-        total = abs(self.yes_position) + abs(self.no_position)
-        if total == 0:
-            return 0.0
-        return abs(self.net_exposure_usd) / self.total_value_usd if self.total_value_usd > 0 else 0.0
-
-    def is_balanced(self, max_skew: float = 0.3) -> bool:
-        return self.get_skew() <= max_skew
-
+    def is_balanced(self, threshold_usd: float = 10.0) -> bool:
+        """Проверяет, находится ли риск в пределах допустимого порога."""
+        return abs(self.net_exposure_usd) < threshold_usd
 
 class InventoryManager:
     def __init__(self, max_exposure_usd: float, min_exposure_usd: float, target_balance: float = 0.0):
@@ -42,54 +30,27 @@ class InventoryManager:
         self.target_balance = target_balance
         self.inventory = Inventory()
 
-    def update_inventory(self, yes_delta: float, no_delta: float, price: float):
-        self.inventory.update(yes_delta, no_delta, price)
-        logger.debug(
-            "inventory_updated",
-            yes_position=self.inventory.yes_position,
-            no_position=self.inventory.no_position,
-            net_exposure=self.inventory.net_exposure_usd,
-            skew=self.inventory.get_skew(),
-        )
-
-    def can_quote_yes(self, size_usd: float) -> bool:
-        potential_exposure = self.inventory.net_exposure_usd + size_usd
-        return potential_exposure <= self.max_exposure_usd
-
-    def can_quote_no(self, size_usd: float) -> bool:
-        potential_exposure = self.inventory.net_exposure_usd - size_usd
-        return potential_exposure >= self.min_exposure_usd
+    def apply_skew_to_price(self, price: float, is_yes: bool) -> float:
+        """Смещает цену в зависимости от накопленного инвентаря."""
+        exposure = self.inventory.net_exposure_usd
+        # 0.005 означает смещение на 0.5 цента при существенном перекосе
+        sensitivity = 0.005 
+        skew_factor = exposure / max(self.max_exposure_usd, 1.0)
+        adjustment = round(skew_factor * sensitivity, 3)
+        
+        if is_yes:
+            new_price = price - adjustment
+        else:
+            new_price = price + adjustment
+            
+        return round(max(0.001, min(0.999, new_price)), 3)
 
     def get_quote_size_yes(self, base_size: float, price: float) -> float:
-        if not self.can_quote_yes(base_size):
-            max_size = max(0, self.max_exposure_usd - self.inventory.net_exposure_usd)
-            return min(base_size, max_size / price)
-        
-        if self.inventory.net_exposure_usd > self.target_balance:
-            return base_size * 0.5
-        
+        if (self.inventory.net_exposure_usd + (base_size * price)) > self.max_exposure_usd:
+            return 0.0
         return base_size
 
     def get_quote_size_no(self, base_size: float, price: float) -> float:
-        if not self.can_quote_no(base_size):
-            max_size = max(0, abs(self.min_exposure_usd - self.inventory.net_exposure_usd))
-            return min(base_size, max_size / (1.0 - price))
-        
-        if self.inventory.net_exposure_usd < self.target_balance:
-            return base_size * 0.5
-        
+        if (self.inventory.net_exposure_usd - (base_size * (1-price))) < self.min_exposure_usd:
+            return 0.0
         return base_size
-
-    def should_rebalance(self, skew_limit: float = 0.3) -> bool:
-        return not self.inventory.is_balanced(skew_limit)
-
-    def get_rebalance_target(self) -> tuple[float, float]:
-        current_skew = self.inventory.get_skew()
-        if current_skew < 0.1:
-            return (0.0, 0.0)
-        
-        rebalance_yes = -self.inventory.yes_position * 0.5
-        rebalance_no = -self.inventory.no_position * 0.5
-        
-        return (rebalance_yes, rebalance_no)
-

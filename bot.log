@@ -1,0 +1,553 @@
+2025-12-24 21:07:12,962 [DEBUG] httpcore.connection: connect_tcp.started host='gamma-api.polymarket.com' port=443 local_address=None timeout=30.0 socket_options=None
+2025-12-24 21:07:13,007 [DEBUG] httpcore.connection: connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x00000161094AE3B0>
+2025-12-24 21:07:13,007 [DEBUG] httpcore.connection: start_tls.started ssl_context=<ssl.SSLContext object at 0x000001610943EA40> server_hostname='gamma-api.polymarket.com' timeout=30.0
+2025-12-24 21:07:13,055 [DEBUG] httpcore.connection: start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x00000161092FB100>
+2025-12-24 21:07:13,055 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'GET']>
+2025-12-24 21:07:13,055 [DEBUG] httpcore.http11: send_request_headers.complete
+2025-12-24 21:07:13,055 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'GET']>
+2025-12-24 21:07:13,055 [DEBUG] httpcore.http11: send_request_body.complete
+2025-12-24 21:07:13,055 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'GET']>
+2025-12-24 21:07:13,311 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Wed, 24 Dec 2025 16:07:12 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Content-Encoding', b'gzip'), (b'Vary', b'Accept-Encoding'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=6EpT4wdsECAh5kgmlaIbftywzcYGTemK0imKmS3Iuz8-1766592432-1.0.1.1-DSs.m2SRGY8G9kUhwoOYLqVSWfvy83Cbj1T7jdjRYyOzYv8yWMFQVfZAjb8.uzEXBfFhSwPZqeLJjkfRwbIcKlIz4ZhkHYiRlfDODtsU0Ls; path=/; expires=Wed, 24-Dec-25 16:37:12 GMT; domain=.polymarket.com; HttpOnly; Secure; SameSite=None'), (b'Strict-Transport-Security', b'max-age=7776000; includeSubDomains'), (b'Server', b'cloudflare'), (b'CF-RAY', b'9b3159aa9868bcaf-ALA'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-12-24 21:07:13,311 [INFO] httpx: HTTP Request: GET https://gamma-api.polymarket.com/markets?active=true&closed=false "HTTP/1.1 200 OK"
+2025-12-24 21:07:13,311 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'GET']>
+2025-12-24 21:07:13,423 [DEBUG] httpcore.http11: receive_response_body.complete
+2025-12-24 21:07:13,423 [DEBUG] httpcore.http11: response_closed.started
+2025-12-24 21:07:13,423 [DEBUG] httpcore.http11: response_closed.complete
+2025-12-24 21:07:14,124 [INFO] src.market_discovery: [96m2025-12-24T16:07:14.124707Z[0m [92m[INFO][0m [94mmarket_discovery[0m [97mmarket_selected[0m
+  [95mmarket_id[0m=[93m516719[0m
+  [95mquestion[0m=[93mRussia x Ukraine ceasefire in 2025?[0m
+  [95mvolume_24h[0m=[93m546663.6661210003[0m
+  [95mspread_bps[0m=[93m869[0m
+
+2025-12-24 21:07:14,124 [DEBUG] httpcore.connection: connect_tcp.started host='gamma-api.polymarket.com' port=443 local_address=None timeout=30.0 socket_options=None
+2025-12-24 21:07:14,187 [DEBUG] httpcore.connection: connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x00000161094F71C0>
+2025-12-24 21:07:14,187 [DEBUG] httpcore.connection: start_tls.started ssl_context=<ssl.SSLContext object at 0x000001610929AEC0> server_hostname='gamma-api.polymarket.com' timeout=30.0
+2025-12-24 21:07:14,235 [DEBUG] httpcore.connection: start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x00000161094F6F50>
+2025-12-24 21:07:14,235 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'GET']>
+2025-12-24 21:07:14,235 [DEBUG] httpcore.http11: send_request_headers.complete
+2025-12-24 21:07:14,235 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'GET']>
+2025-12-24 21:07:14,235 [DEBUG] httpcore.http11: send_request_body.complete
+2025-12-24 21:07:14,235 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'GET']>
+2025-12-24 21:07:14,507 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Wed, 24 Dec 2025 16:07:13 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Content-Encoding', b'gzip'), (b'Vary', b'Accept-Encoding'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=c2Kcpoe1LpoNQKRQno8piEfk_H1uGPmtvImlK0WmjbQ-1766592433-1.0.1.1-kyXTD62NTFpvR6Go1tpxk8GwjxzDkWHqv_eDM4OpRSd.yXS2v.rvskx_1UbIbLxntYLRkUEtTV3zCEhhU6PFcDGUe5JN9zTOMnpV9__rUxE; path=/; expires=Wed, 24-Dec-25 16:37:13 GMT; domain=.polymarket.com; HttpOnly; Secure; SameSite=None'), (b'Strict-Transport-Security', b'max-age=7776000; includeSubDomains'), (b'Server', b'cloudflare'), (b'CF-RAY', b'9b3159b20a1fe4c6-AKX'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-12-24 21:07:14,507 [INFO] httpx: HTTP Request: GET https://gamma-api.polymarket.com/markets/516719 "HTTP/1.1 200 OK"
+2025-12-24 21:07:14,507 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'GET']>
+2025-12-24 21:07:14,507 [DEBUG] httpcore.http11: receive_response_body.complete
+2025-12-24 21:07:14,507 [DEBUG] httpcore.http11: response_closed.started
+2025-12-24 21:07:14,507 [DEBUG] httpcore.http11: response_closed.complete
+2025-12-24 21:07:14,507 [INFO] __main__: [96m2025-12-24T16:07:14.507568Z[0m [92m[INFO][0m [94m__main__[0m [97mmarket_initialized[0m
+  [95mid[0m=[93m516719[0m
+  [95mquestion[0m=[93mRussia x Ukraine ceasefire in 2025?[0m
+
+2025-12-24 21:07:14,507 [INFO] __main__: [96m2025-12-24T16:07:14.507568Z[0m [92m[INFO][0m [94m__main__[0m [97mstarting_quote_loop[0m
+  [95mrefresh_ms[0m=[93m5000[0m
+
+2025-12-24 21:07:14,507 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'GET']>
+2025-12-24 21:07:14,507 [DEBUG] httpcore.http11: send_request_headers.complete
+2025-12-24 21:07:14,507 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'GET']>
+2025-12-24 21:07:14,507 [DEBUG] httpcore.http11: send_request_body.complete
+2025-12-24 21:07:14,507 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'GET']>
+2025-12-24 21:07:14,665 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Wed, 24 Dec 2025 16:07:13 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Content-Encoding', b'gzip'), (b'Vary', b'Accept-Encoding'), (b'cf-cache-status', b'DYNAMIC'), (b'Strict-Transport-Security', b'max-age=7776000; includeSubDomains'), (b'Server', b'cloudflare'), (b'CF-RAY', b'9b3159b3bc58e4c6-AKX'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-12-24 21:07:14,665 [INFO] httpx: HTTP Request: GET https://gamma-api.polymarket.com/markets/516719 "HTTP/1.1 200 OK"
+2025-12-24 21:07:14,665 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'GET']>
+2025-12-24 21:07:14,665 [DEBUG] httpcore.http11: receive_response_body.complete
+2025-12-24 21:07:14,665 [DEBUG] httpcore.http11: response_closed.started
+2025-12-24 21:07:14,665 [DEBUG] httpcore.http11: response_closed.complete
+2025-12-24 21:07:14,665 [INFO] __main__: [96m2025-12-24T16:07:14.665168Z[0m [92m[INFO][0m [94m__main__[0m [97mmarket_status[0m
+  [95mbid[0m=[93m0.011[0m
+  [95mask[0m=[93m0.012[0m
+  [95mspread_bps[0m=[93m869[0m
+
+2025-12-24 21:07:14,665 [WARNING] src.market_maker.quote_engine: [96m2025-12-24T16:07:14.665168Z[0m [93m[WARNING][0m [94mquote_engine[0m [97mnegative_edge_detected[0m
+  [95mtotal_cost[0m=[93m0.999[0m
+  [95myes_p[0m=[93m0.011[0m
+  [95mno_p[0m=[93m0.988[0m
+
+2025-12-24 21:07:14,665 [INFO] src.market_maker.quote_engine: [96m2025-12-24T16:07:14.665168Z[0m [92m[INFO][0m [94mquote_engine[0m [97mquotes_generated[0m
+  [95medge_per_contract[0m=[93m0.003[0m
+  [95myes_price[0m=[93m0.01[0m
+  [95mno_price[0m=[93m0.987[0m
+  [95mis_balanced[0m=[93mTrue[0m
+
+2025-12-24 21:07:14,665 [INFO] __main__: [96m2025-12-24T16:07:14.665168Z[0m [92m[INFO][0m [94m__main__[0m [97mquote_yes[0m
+  [95mside[0m=[93mBUY[0m
+  [95mprice[0m=[93m0.01[0m
+  [95msize[0m=[93m100.0[0m
+  [95mdist_bps[0m=[93m909[0m
+
+2025-12-24 21:07:14,665 [INFO] __main__: [96m2025-12-24T16:07:14.665168Z[0m [92m[INFO][0m [94m__main__[0m [97mquote_no[0m
+  [95mside[0m=[93mBUY[0m
+  [95mprice[0m=[93m0.987[0m
+  [95msize[0m=[93m100.0[0m
+  [95mdist_bps[0m=[93m10[0m
+
+2025-12-24 21:07:19,665 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'GET']>
+2025-12-24 21:07:19,665 [DEBUG] httpcore.http11: send_request_headers.complete
+2025-12-24 21:07:19,665 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'GET']>
+2025-12-24 21:07:19,665 [DEBUG] httpcore.http11: send_request_body.complete
+2025-12-24 21:07:19,665 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'GET']>
+2025-12-24 21:07:19,855 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Wed, 24 Dec 2025 16:07:18 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Content-Encoding', b'gzip'), (b'Vary', b'Accept-Encoding'), (b'cf-cache-status', b'DYNAMIC'), (b'Strict-Transport-Security', b'max-age=7776000; includeSubDomains'), (b'Server', b'cloudflare'), (b'CF-RAY', b'9b3159d3dfeee4c6-AKX'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-12-24 21:07:19,855 [INFO] httpx: HTTP Request: GET https://gamma-api.polymarket.com/markets/516719 "HTTP/1.1 200 OK"
+2025-12-24 21:07:19,855 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'GET']>
+2025-12-24 21:07:19,855 [DEBUG] httpcore.http11: receive_response_body.complete
+2025-12-24 21:07:19,855 [DEBUG] httpcore.http11: response_closed.started
+2025-12-24 21:07:19,855 [DEBUG] httpcore.http11: response_closed.complete
+2025-12-24 21:07:19,870 [INFO] __main__: [96m2025-12-24T16:07:19.870946Z[0m [92m[INFO][0m [94m__main__[0m [97mmarket_status[0m
+  [95mbid[0m=[93m0.011[0m
+  [95mask[0m=[93m0.012[0m
+  [95mspread_bps[0m=[93m869[0m
+
+2025-12-24 21:07:19,870 [WARNING] src.market_maker.quote_engine: [96m2025-12-24T16:07:19.870946Z[0m [93m[WARNING][0m [94mquote_engine[0m [97mnegative_edge_detected[0m
+  [95mtotal_cost[0m=[93m0.999[0m
+  [95myes_p[0m=[93m0.011[0m
+  [95mno_p[0m=[93m0.988[0m
+
+2025-12-24 21:07:19,870 [INFO] src.market_maker.quote_engine: [96m2025-12-24T16:07:19.870946Z[0m [92m[INFO][0m [94mquote_engine[0m [97mquotes_generated[0m
+  [95medge_per_contract[0m=[93m0.003[0m
+  [95myes_price[0m=[93m0.01[0m
+  [95mno_price[0m=[93m0.987[0m
+  [95mis_balanced[0m=[93mTrue[0m
+
+2025-12-24 21:07:19,870 [INFO] __main__: [96m2025-12-24T16:07:19.870946Z[0m [92m[INFO][0m [94m__main__[0m [97mquote_yes[0m
+  [95mside[0m=[93mBUY[0m
+  [95mprice[0m=[93m0.01[0m
+  [95msize[0m=[93m100.0[0m
+  [95mdist_bps[0m=[93m909[0m
+
+2025-12-24 21:07:19,870 [INFO] __main__: [96m2025-12-24T16:07:19.870946Z[0m [92m[INFO][0m [94m__main__[0m [97mquote_no[0m
+  [95mside[0m=[93mBUY[0m
+  [95mprice[0m=[93m0.987[0m
+  [95msize[0m=[93m100.0[0m
+  [95mdist_bps[0m=[93m10[0m
+
+2025-12-24 21:07:24,885 [DEBUG] httpcore.connection: close.started
+2025-12-24 21:07:24,885 [DEBUG] httpcore.connection: close.complete
+2025-12-24 21:07:24,885 [DEBUG] httpcore.connection: close.started
+2025-12-24 21:07:24,885 [DEBUG] httpcore.connection: close.complete
+2025-12-24 21:08:08,943 [DEBUG] httpcore.connection: connect_tcp.started host='gamma-api.polymarket.com' port=443 local_address=None timeout=30.0 socket_options=None
+2025-12-24 21:08:09,054 [DEBUG] httpcore.connection: connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x00000178899DE3B0>
+2025-12-24 21:08:09,054 [DEBUG] httpcore.connection: start_tls.started ssl_context=<ssl.SSLContext object at 0x000001788996EAC0> server_hostname='gamma-api.polymarket.com' timeout=30.0
+2025-12-24 21:08:09,085 [DEBUG] httpcore.connection: start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x000001788982B100>
+2025-12-24 21:08:09,101 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'GET']>
+2025-12-24 21:08:09,101 [DEBUG] httpcore.http11: send_request_headers.complete
+2025-12-24 21:08:09,101 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'GET']>
+2025-12-24 21:08:09,101 [DEBUG] httpcore.http11: send_request_body.complete
+2025-12-24 21:08:09,101 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'GET']>
+2025-12-24 21:08:09,283 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Wed, 24 Dec 2025 16:08:07 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Content-Encoding', b'gzip'), (b'Vary', b'Accept-Encoding'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=KTR8JAFtubgxnu_NaZ2bzGSA0E1_52ePnY0QYghT1n0-1766592487-1.0.1.1-oE.zvSPtOUpwgBfV6x_gIABYlCJbSeP4z0YFRr8i3c4gY25o1eUBZRVnmV_F374Ruy2an3PtSJY_TVi0_8ghqHRxOpRItFsqHYKw5ZwYXSw; path=/; expires=Wed, 24-Dec-25 16:38:07 GMT; domain=.polymarket.com; HttpOnly; Secure; SameSite=None'), (b'Strict-Transport-Security', b'max-age=7776000; includeSubDomains'), (b'Server', b'cloudflare'), (b'CF-RAY', b'9b315b08ed3de4c8-AKX'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-12-24 21:08:09,283 [INFO] httpx: HTTP Request: GET https://gamma-api.polymarket.com/markets?active=true&closed=false "HTTP/1.1 200 OK"
+2025-12-24 21:08:09,283 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'GET']>
+2025-12-24 21:08:09,386 [DEBUG] httpcore.http11: receive_response_body.complete
+2025-12-24 21:08:09,386 [DEBUG] httpcore.http11: response_closed.started
+2025-12-24 21:08:09,386 [DEBUG] httpcore.http11: response_closed.complete
+2025-12-24 21:08:12,100 [INFO] src.market_discovery: [96m2025-12-24T16:08:12.100500Z[0m [92m[INFO][0m [94mmarket_discovery[0m [97mmarket_selected[0m
+  [95mmarket_id[0m=[93m516818[0m
+  [95mquestion[0m=[93mWill NVIDIA be the largest company in the world by market cap on Decem[0m
+  [95mvolume_24h[0m=[93m219292.95772799992[0m
+  [95mspread_bps[0m=[93m10[0m
+
+2025-12-24 21:08:12,100 [DEBUG] httpcore.connection: connect_tcp.started host='gamma-api.polymarket.com' port=443 local_address=None timeout=30.0 socket_options=None
+2025-12-24 21:08:12,148 [DEBUG] httpcore.connection: connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x0000017889A271C0>
+2025-12-24 21:08:12,148 [DEBUG] httpcore.connection: start_tls.started ssl_context=<ssl.SSLContext object at 0x00000178897CAF40> server_hostname='gamma-api.polymarket.com' timeout=30.0
+2025-12-24 21:08:12,180 [DEBUG] httpcore.connection: start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x0000017889A26F50>
+2025-12-24 21:08:12,180 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'GET']>
+2025-12-24 21:08:12,180 [DEBUG] httpcore.http11: send_request_headers.complete
+2025-12-24 21:08:12,180 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'GET']>
+2025-12-24 21:08:12,180 [DEBUG] httpcore.http11: send_request_body.complete
+2025-12-24 21:08:12,180 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'GET']>
+2025-12-24 21:08:12,356 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Wed, 24 Dec 2025 16:08:11 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Content-Encoding', b'gzip'), (b'Vary', b'Accept-Encoding'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=fFKtf4EADF8PjsUBbgRjJcbBVBCdr29XrAKvk8JQhJY-1766592491-1.0.1.1-t5.aW3.GbCv4HvEPN9UKnPe8V.yyW7KokivYISxphrYxjM8klXjHcQDIg0dq_1BSrk90EGZTPRDi5Wtt_vvLMTxb_naWCDkJAXpPRsHDRoM; path=/; expires=Wed, 24-Dec-25 16:38:11 GMT; domain=.polymarket.com; HttpOnly; Secure; SameSite=None'), (b'Strict-Transport-Security', b'max-age=7776000; includeSubDomains'), (b'Server', b'cloudflare'), (b'CF-RAY', b'9b315b1c2d37e4c4-AKX'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-12-24 21:08:12,356 [INFO] httpx: HTTP Request: GET https://gamma-api.polymarket.com/markets/516818 "HTTP/1.1 200 OK"
+2025-12-24 21:08:12,356 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'GET']>
+2025-12-24 21:08:12,356 [DEBUG] httpcore.http11: receive_response_body.complete
+2025-12-24 21:08:12,356 [DEBUG] httpcore.http11: response_closed.started
+2025-12-24 21:08:12,356 [DEBUG] httpcore.http11: response_closed.complete
+2025-12-24 21:08:12,356 [INFO] __main__: [96m2025-12-24T16:08:12.356268Z[0m [92m[INFO][0m [94m__main__[0m [97mmarket_initialized[0m
+  [95mid[0m=[93m516818[0m
+  [95mquestion[0m=[93mWill NVIDIA be the largest company in the world by market cap on December 31?[0m
+
+2025-12-24 21:08:12,356 [INFO] __main__: [96m2025-12-24T16:08:12.356268Z[0m [92m[INFO][0m [94m__main__[0m [97mstarting_quote_loop[0m
+  [95mrefresh_ms[0m=[93m5000[0m
+
+2025-12-24 21:08:12,356 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'GET']>
+2025-12-24 21:08:12,356 [DEBUG] httpcore.http11: send_request_headers.complete
+2025-12-24 21:08:12,356 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'GET']>
+2025-12-24 21:08:12,356 [DEBUG] httpcore.http11: send_request_body.complete
+2025-12-24 21:08:12,356 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'GET']>
+2025-12-24 21:08:12,499 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Wed, 24 Dec 2025 16:08:11 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Content-Encoding', b'gzip'), (b'Vary', b'Accept-Encoding'), (b'cf-cache-status', b'DYNAMIC'), (b'Strict-Transport-Security', b'max-age=7776000; includeSubDomains'), (b'Server', b'cloudflare'), (b'CF-RAY', b'9b315b1d3f0ee4c4-AKX'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-12-24 21:08:12,499 [INFO] httpx: HTTP Request: GET https://gamma-api.polymarket.com/markets/516818 "HTTP/1.1 200 OK"
+2025-12-24 21:08:12,499 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'GET']>
+2025-12-24 21:08:12,499 [DEBUG] httpcore.http11: receive_response_body.complete
+2025-12-24 21:08:12,499 [DEBUG] httpcore.http11: response_closed.started
+2025-12-24 21:08:12,499 [DEBUG] httpcore.http11: response_closed.complete
+2025-12-24 21:08:12,499 [INFO] __main__: [96m2025-12-24T16:08:12.499457Z[0m [92m[INFO][0m [94m__main__[0m [97mmarket_status[0m
+  [95mbid[0m=[93m0.989[0m
+  [95mask[0m=[93m0.99[0m
+  [95mspread_bps[0m=[93m10[0m
+
+2025-12-24 21:08:12,499 [WARNING] src.market_maker.quote_engine: [96m2025-12-24T16:08:12.499457Z[0m [93m[WARNING][0m [94mquote_engine[0m [97mnegative_edge_detected[0m
+  [95mtotal_cost[0m=[93m0.999[0m
+  [95myes_p[0m=[93m0.989[0m
+  [95mno_p[0m=[93m0.01[0m
+
+2025-12-24 21:08:12,499 [INFO] src.market_maker.quote_engine: [96m2025-12-24T16:08:12.499457Z[0m [92m[INFO][0m [94mquote_engine[0m [97mquotes_generated[0m
+  [95medge_per_contract[0m=[93m0.003[0m
+  [95myes_price[0m=[93m0.988[0m
+  [95mno_price[0m=[93m0.009[0m
+  [95mis_balanced[0m=[93mTrue[0m
+
+2025-12-24 21:08:12,499 [INFO] __main__: [96m2025-12-24T16:08:12.499457Z[0m [92m[INFO][0m [94m__main__[0m [97mquote_yes[0m
+  [95mside[0m=[93mBUY[0m
+  [95mprice[0m=[93m0.988[0m
+  [95msize[0m=[93m100.0[0m
+  [95mdist_bps[0m=[93m10[0m
+
+2025-12-24 21:08:12,499 [INFO] __main__: [96m2025-12-24T16:08:12.499457Z[0m [92m[INFO][0m [94m__main__[0m [97mquote_no[0m
+  [95mside[0m=[93mBUY[0m
+  [95mprice[0m=[93m0.009[0m
+  [95msize[0m=[93m100.0[0m
+  [95mdist_bps[0m=[93m1000[0m
+
+2025-12-24 21:08:17,501 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'GET']>
+2025-12-24 21:08:17,501 [DEBUG] httpcore.http11: send_request_headers.complete
+2025-12-24 21:08:17,501 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'GET']>
+2025-12-24 21:08:17,501 [DEBUG] httpcore.http11: send_request_body.complete
+2025-12-24 21:08:17,501 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'GET']>
+2025-12-24 21:08:17,642 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Wed, 24 Dec 2025 16:08:16 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Content-Encoding', b'gzip'), (b'Vary', b'Accept-Encoding'), (b'cf-cache-status', b'DYNAMIC'), (b'Strict-Transport-Security', b'max-age=7776000; includeSubDomains'), (b'Server', b'cloudflare'), (b'CF-RAY', b'9b315b3d5f01e4c4-AKX'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-12-24 21:08:17,642 [INFO] httpx: HTTP Request: GET https://gamma-api.polymarket.com/markets/516818 "HTTP/1.1 200 OK"
+2025-12-24 21:08:17,642 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'GET']>
+2025-12-24 21:08:17,642 [DEBUG] httpcore.http11: receive_response_body.complete
+2025-12-24 21:08:17,658 [DEBUG] httpcore.http11: response_closed.started
+2025-12-24 21:08:17,658 [DEBUG] httpcore.http11: response_closed.complete
+2025-12-24 21:08:17,658 [INFO] __main__: [96m2025-12-24T16:08:17.658466Z[0m [92m[INFO][0m [94m__main__[0m [97mmarket_status[0m
+  [95mbid[0m=[93m0.989[0m
+  [95mask[0m=[93m0.99[0m
+  [95mspread_bps[0m=[93m10[0m
+
+2025-12-24 21:08:17,658 [WARNING] src.market_maker.quote_engine: [96m2025-12-24T16:08:17.658466Z[0m [93m[WARNING][0m [94mquote_engine[0m [97mnegative_edge_detected[0m
+  [95mtotal_cost[0m=[93m0.999[0m
+  [95myes_p[0m=[93m0.989[0m
+  [95mno_p[0m=[93m0.01[0m
+
+2025-12-24 21:08:17,658 [INFO] src.market_maker.quote_engine: [96m2025-12-24T16:08:17.658466Z[0m [92m[INFO][0m [94mquote_engine[0m [97mquotes_generated[0m
+  [95medge_per_contract[0m=[93m0.003[0m
+  [95myes_price[0m=[93m0.988[0m
+  [95mno_price[0m=[93m0.009[0m
+  [95mis_balanced[0m=[93mTrue[0m
+
+2025-12-24 21:08:17,658 [INFO] __main__: [96m2025-12-24T16:08:17.658466Z[0m [92m[INFO][0m [94m__main__[0m [97mquote_yes[0m
+  [95mside[0m=[93mBUY[0m
+  [95mprice[0m=[93m0.988[0m
+  [95msize[0m=[93m100.0[0m
+  [95mdist_bps[0m=[93m10[0m
+
+2025-12-24 21:08:17,658 [INFO] __main__: [96m2025-12-24T16:08:17.658466Z[0m [92m[INFO][0m [94m__main__[0m [97mquote_no[0m
+  [95mside[0m=[93mBUY[0m
+  [95mprice[0m=[93m0.009[0m
+  [95msize[0m=[93m100.0[0m
+  [95mdist_bps[0m=[93m1000[0m
+
+2025-12-24 21:08:22,672 [DEBUG] httpcore.connection: close.started
+2025-12-24 21:08:22,672 [DEBUG] httpcore.connection: close.complete
+2025-12-24 21:08:22,672 [DEBUG] httpcore.connection: connect_tcp.started host='gamma-api.polymarket.com' port=443 local_address=None timeout=30.0 socket_options=None
+2025-12-24 21:08:22,704 [DEBUG] httpcore.connection: connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x00000178899DD210>
+2025-12-24 21:08:22,704 [DEBUG] httpcore.connection: start_tls.started ssl_context=<ssl.SSLContext object at 0x00000178897CAF40> server_hostname='gamma-api.polymarket.com' timeout=30.0
+2025-12-24 21:08:22,751 [DEBUG] httpcore.connection: start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x00000178899DD720>
+2025-12-24 21:08:22,751 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'GET']>
+2025-12-24 21:08:22,751 [DEBUG] httpcore.http11: send_request_headers.complete
+2025-12-24 21:08:22,751 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'GET']>
+2025-12-24 21:08:22,751 [DEBUG] httpcore.http11: send_request_body.complete
+2025-12-24 21:08:22,751 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'GET']>
+2025-12-24 21:08:22,948 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Wed, 24 Dec 2025 16:08:21 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Content-Encoding', b'gzip'), (b'Vary', b'Accept-Encoding'), (b'cf-cache-status', b'DYNAMIC'), (b'Strict-Transport-Security', b'max-age=7776000; includeSubDomains'), (b'Server', b'cloudflare'), (b'CF-RAY', b'9b315b5e3b33e4bd-AKX'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-12-24 21:08:22,949 [INFO] httpx: HTTP Request: GET https://gamma-api.polymarket.com/markets/516818 "HTTP/1.1 200 OK"
+2025-12-24 21:08:22,949 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'GET']>
+2025-12-24 21:08:22,949 [DEBUG] httpcore.http11: receive_response_body.complete
+2025-12-24 21:08:22,951 [DEBUG] httpcore.http11: response_closed.started
+2025-12-24 21:08:22,951 [DEBUG] httpcore.http11: response_closed.complete
+2025-12-24 21:08:22,951 [INFO] __main__: [96m2025-12-24T16:08:22.951956Z[0m [92m[INFO][0m [94m__main__[0m [97mmarket_status[0m
+  [95mbid[0m=[93m0.989[0m
+  [95mask[0m=[93m0.99[0m
+  [95mspread_bps[0m=[93m10[0m
+
+2025-12-24 21:08:22,953 [WARNING] src.market_maker.quote_engine: [96m2025-12-24T16:08:22.953896Z[0m [93m[WARNING][0m [94mquote_engine[0m [97mnegative_edge_detected[0m
+  [95mtotal_cost[0m=[93m0.999[0m
+  [95myes_p[0m=[93m0.989[0m
+  [95mno_p[0m=[93m0.01[0m
+
+2025-12-24 21:08:22,953 [INFO] src.market_maker.quote_engine: [96m2025-12-24T16:08:22.953896Z[0m [92m[INFO][0m [94mquote_engine[0m [97mquotes_generated[0m
+  [95medge_per_contract[0m=[93m0.003[0m
+  [95myes_price[0m=[93m0.988[0m
+  [95mno_price[0m=[93m0.009[0m
+  [95mis_balanced[0m=[93mTrue[0m
+
+2025-12-24 21:08:22,953 [INFO] __main__: [96m2025-12-24T16:08:22.953896Z[0m [92m[INFO][0m [94m__main__[0m [97mquote_yes[0m
+  [95mside[0m=[93mBUY[0m
+  [95mprice[0m=[93m0.988[0m
+  [95msize[0m=[93m100.0[0m
+  [95mdist_bps[0m=[93m10[0m
+
+2025-12-24 21:08:22,953 [INFO] __main__: [96m2025-12-24T16:08:22.953896Z[0m [92m[INFO][0m [94m__main__[0m [97mquote_no[0m
+  [95mside[0m=[93mBUY[0m
+  [95mprice[0m=[93m0.009[0m
+  [95msize[0m=[93m100.0[0m
+  [95mdist_bps[0m=[93m1000[0m
+
+2025-12-24 21:08:27,958 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'GET']>
+2025-12-24 21:08:27,958 [DEBUG] httpcore.http11: send_request_headers.complete
+2025-12-24 21:08:27,958 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'GET']>
+2025-12-24 21:08:27,958 [DEBUG] httpcore.http11: send_request_body.complete
+2025-12-24 21:08:27,958 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'GET']>
+2025-12-24 21:08:28,115 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Wed, 24 Dec 2025 16:08:26 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Content-Encoding', b'gzip'), (b'Vary', b'Accept-Encoding'), (b'cf-cache-status', b'DYNAMIC'), (b'Strict-Transport-Security', b'max-age=7776000; includeSubDomains'), (b'Server', b'cloudflare'), (b'CF-RAY', b'9b315b7ebf53e4bd-AKX'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-12-24 21:08:28,115 [INFO] httpx: HTTP Request: GET https://gamma-api.polymarket.com/markets/516818 "HTTP/1.1 200 OK"
+2025-12-24 21:08:28,115 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'GET']>
+2025-12-24 21:08:28,115 [DEBUG] httpcore.http11: receive_response_body.complete
+2025-12-24 21:08:28,115 [DEBUG] httpcore.http11: response_closed.started
+2025-12-24 21:08:28,115 [DEBUG] httpcore.http11: response_closed.complete
+2025-12-24 21:08:28,115 [INFO] __main__: [96m2025-12-24T16:08:28.115676Z[0m [92m[INFO][0m [94m__main__[0m [97mmarket_status[0m
+  [95mbid[0m=[93m0.989[0m
+  [95mask[0m=[93m0.99[0m
+  [95mspread_bps[0m=[93m10[0m
+
+2025-12-24 21:08:28,115 [WARNING] src.market_maker.quote_engine: [96m2025-12-24T16:08:28.115676Z[0m [93m[WARNING][0m [94mquote_engine[0m [97mnegative_edge_detected[0m
+  [95mtotal_cost[0m=[93m0.999[0m
+  [95myes_p[0m=[93m0.989[0m
+  [95mno_p[0m=[93m0.01[0m
+
+2025-12-24 21:08:28,115 [INFO] src.market_maker.quote_engine: [96m2025-12-24T16:08:28.115676Z[0m [92m[INFO][0m [94mquote_engine[0m [97mquotes_generated[0m
+  [95medge_per_contract[0m=[93m0.003[0m
+  [95myes_price[0m=[93m0.988[0m
+  [95mno_price[0m=[93m0.009[0m
+  [95mis_balanced[0m=[93mTrue[0m
+
+2025-12-24 21:08:28,115 [INFO] __main__: [96m2025-12-24T16:08:28.115676Z[0m [92m[INFO][0m [94m__main__[0m [97mquote_yes[0m
+  [95mside[0m=[93mBUY[0m
+  [95mprice[0m=[93m0.988[0m
+  [95msize[0m=[93m100.0[0m
+  [95mdist_bps[0m=[93m10[0m
+
+2025-12-24 21:08:28,115 [INFO] __main__: [96m2025-12-24T16:08:28.115676Z[0m [92m[INFO][0m [94m__main__[0m [97mquote_no[0m
+  [95mside[0m=[93mBUY[0m
+  [95mprice[0m=[93m0.009[0m
+  [95msize[0m=[93m100.0[0m
+  [95mdist_bps[0m=[93m1000[0m
+
+2025-12-24 21:08:33,121 [DEBUG] httpcore.connection: close.started
+2025-12-24 21:08:33,121 [DEBUG] httpcore.connection: close.complete
+2025-12-24 21:08:33,121 [DEBUG] httpcore.connection: connect_tcp.started host='gamma-api.polymarket.com' port=443 local_address=None timeout=30.0 socket_options=None
+2025-12-24 21:08:33,159 [DEBUG] httpcore.connection: connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x0000017889A8A1D0>
+2025-12-24 21:08:33,159 [DEBUG] httpcore.connection: start_tls.started ssl_context=<ssl.SSLContext object at 0x00000178897CAF40> server_hostname='gamma-api.polymarket.com' timeout=30.0
+2025-12-24 21:08:33,217 [DEBUG] httpcore.connection: start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x0000017889A88E50>
+2025-12-24 21:08:33,217 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'GET']>
+2025-12-24 21:08:33,217 [DEBUG] httpcore.http11: send_request_headers.complete
+2025-12-24 21:08:33,217 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'GET']>
+2025-12-24 21:08:33,217 [DEBUG] httpcore.http11: send_request_body.complete
+2025-12-24 21:08:33,217 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'GET']>
+2025-12-24 21:08:33,408 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Wed, 24 Dec 2025 16:08:32 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Content-Encoding', b'gzip'), (b'Vary', b'Accept-Encoding'), (b'cf-cache-status', b'DYNAMIC'), (b'Strict-Transport-Security', b'max-age=7776000; includeSubDomains'), (b'Server', b'cloudflare'), (b'CF-RAY', b'9b315b9f9d24e4c1-AKX'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-12-24 21:08:33,408 [INFO] httpx: HTTP Request: GET https://gamma-api.polymarket.com/markets/516818 "HTTP/1.1 200 OK"
+2025-12-24 21:08:33,408 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'GET']>
+2025-12-24 21:08:33,408 [DEBUG] httpcore.http11: receive_response_body.complete
+2025-12-24 21:08:33,408 [DEBUG] httpcore.http11: response_closed.started
+2025-12-24 21:08:33,408 [DEBUG] httpcore.http11: response_closed.complete
+2025-12-24 21:08:33,408 [INFO] __main__: [96m2025-12-24T16:08:33.408730Z[0m [92m[INFO][0m [94m__main__[0m [97mmarket_status[0m
+  [95mbid[0m=[93m0.989[0m
+  [95mask[0m=[93m0.99[0m
+  [95mspread_bps[0m=[93m10[0m
+
+2025-12-24 21:08:33,408 [WARNING] src.market_maker.quote_engine: [96m2025-12-24T16:08:33.408730Z[0m [93m[WARNING][0m [94mquote_engine[0m [97mnegative_edge_detected[0m
+  [95mtotal_cost[0m=[93m0.999[0m
+  [95myes_p[0m=[93m0.989[0m
+  [95mno_p[0m=[93m0.01[0m
+
+2025-12-24 21:08:33,408 [INFO] src.market_maker.quote_engine: [96m2025-12-24T16:08:33.408730Z[0m [92m[INFO][0m [94mquote_engine[0m [97mquotes_generated[0m
+  [95medge_per_contract[0m=[93m0.003[0m
+  [95myes_price[0m=[93m0.988[0m
+  [95mno_price[0m=[93m0.009[0m
+  [95mis_balanced[0m=[93mTrue[0m
+
+2025-12-24 21:08:33,408 [INFO] __main__: [96m2025-12-24T16:08:33.408730Z[0m [92m[INFO][0m [94m__main__[0m [97mquote_yes[0m
+  [95mside[0m=[93mBUY[0m
+  [95mprice[0m=[93m0.988[0m
+  [95msize[0m=[93m100.0[0m
+  [95mdist_bps[0m=[93m10[0m
+
+2025-12-24 21:08:33,408 [INFO] __main__: [96m2025-12-24T16:08:33.408730Z[0m [92m[INFO][0m [94m__main__[0m [97mquote_no[0m
+  [95mside[0m=[93mBUY[0m
+  [95mprice[0m=[93m0.009[0m
+  [95msize[0m=[93m100.0[0m
+  [95mdist_bps[0m=[93m1000[0m
+
+2025-12-24 21:08:38,410 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'GET']>
+2025-12-24 21:08:38,413 [DEBUG] httpcore.http11: send_request_headers.complete
+2025-12-24 21:08:38,413 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'GET']>
+2025-12-24 21:08:38,413 [DEBUG] httpcore.http11: send_request_body.complete
+2025-12-24 21:08:38,413 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'GET']>
+2025-12-24 21:08:38,570 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Wed, 24 Dec 2025 16:08:37 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Content-Encoding', b'gzip'), (b'Vary', b'Accept-Encoding'), (b'cf-cache-status', b'DYNAMIC'), (b'Strict-Transport-Security', b'max-age=7776000; includeSubDomains'), (b'Server', b'cloudflare'), (b'CF-RAY', b'9b315bc00931e4c1-AKX'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-12-24 21:08:38,570 [INFO] httpx: HTTP Request: GET https://gamma-api.polymarket.com/markets/516818 "HTTP/1.1 200 OK"
+2025-12-24 21:08:38,570 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'GET']>
+2025-12-24 21:08:38,570 [DEBUG] httpcore.http11: receive_response_body.complete
+2025-12-24 21:08:38,570 [DEBUG] httpcore.http11: response_closed.started
+2025-12-24 21:08:38,570 [DEBUG] httpcore.http11: response_closed.complete
+2025-12-24 21:08:38,570 [INFO] __main__: [96m2025-12-24T16:08:38.570081Z[0m [92m[INFO][0m [94m__main__[0m [97mmarket_status[0m
+  [95mbid[0m=[93m0.989[0m
+  [95mask[0m=[93m0.99[0m
+  [95mspread_bps[0m=[93m10[0m
+
+2025-12-24 21:08:38,570 [WARNING] src.market_maker.quote_engine: [96m2025-12-24T16:08:38.570081Z[0m [93m[WARNING][0m [94mquote_engine[0m [97mnegative_edge_detected[0m
+  [95mtotal_cost[0m=[93m0.999[0m
+  [95myes_p[0m=[93m0.989[0m
+  [95mno_p[0m=[93m0.01[0m
+
+2025-12-24 21:08:38,570 [INFO] src.market_maker.quote_engine: [96m2025-12-24T16:08:38.570081Z[0m [92m[INFO][0m [94mquote_engine[0m [97mquotes_generated[0m
+  [95medge_per_contract[0m=[93m0.003[0m
+  [95myes_price[0m=[93m0.988[0m
+  [95mno_price[0m=[93m0.009[0m
+  [95mis_balanced[0m=[93mTrue[0m
+
+2025-12-24 21:08:38,584 [INFO] __main__: [96m2025-12-24T16:08:38.584333Z[0m [92m[INFO][0m [94m__main__[0m [97mquote_yes[0m
+  [95mside[0m=[93mBUY[0m
+  [95mprice[0m=[93m0.988[0m
+  [95msize[0m=[93m100.0[0m
+  [95mdist_bps[0m=[93m10[0m
+
+2025-12-24 21:08:38,584 [INFO] __main__: [96m2025-12-24T16:08:38.584333Z[0m [92m[INFO][0m [94m__main__[0m [97mquote_no[0m
+  [95mside[0m=[93mBUY[0m
+  [95mprice[0m=[93m0.009[0m
+  [95msize[0m=[93m100.0[0m
+  [95mdist_bps[0m=[93m1000[0m
+
+2025-12-24 21:08:43,585 [DEBUG] httpcore.connection: close.started
+2025-12-24 21:08:43,585 [DEBUG] httpcore.connection: close.complete
+2025-12-24 21:08:43,585 [DEBUG] httpcore.connection: connect_tcp.started host='gamma-api.polymarket.com' port=443 local_address=None timeout=30.0 socket_options=None
+2025-12-24 21:08:43,625 [DEBUG] httpcore.connection: connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x0000017889A8A950>
+2025-12-24 21:08:43,625 [DEBUG] httpcore.connection: start_tls.started ssl_context=<ssl.SSLContext object at 0x00000178897CAF40> server_hostname='gamma-api.polymarket.com' timeout=30.0
+2025-12-24 21:08:43,665 [DEBUG] httpcore.connection: start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x0000017889A8A6E0>
+2025-12-24 21:08:43,665 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'GET']>
+2025-12-24 21:08:43,680 [DEBUG] httpcore.http11: send_request_headers.complete
+2025-12-24 21:08:43,680 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'GET']>
+2025-12-24 21:08:43,680 [DEBUG] httpcore.http11: send_request_body.complete
+2025-12-24 21:08:43,680 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'GET']>
+2025-12-24 21:08:44,288 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Wed, 24 Dec 2025 16:08:42 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Content-Encoding', b'gzip'), (b'Vary', b'Accept-Encoding'), (b'cf-cache-status', b'DYNAMIC'), (b'Strict-Transport-Security', b'max-age=7776000; includeSubDomains'), (b'Server', b'cloudflare'), (b'CF-RAY', b'9b315be109c178ca-ALA'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-12-24 21:08:44,288 [INFO] httpx: HTTP Request: GET https://gamma-api.polymarket.com/markets/516818 "HTTP/1.1 200 OK"
+2025-12-24 21:08:44,288 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'GET']>
+2025-12-24 21:08:44,288 [DEBUG] httpcore.http11: receive_response_body.complete
+2025-12-24 21:08:44,288 [DEBUG] httpcore.http11: response_closed.started
+2025-12-24 21:08:44,288 [DEBUG] httpcore.http11: response_closed.complete
+2025-12-24 21:08:44,288 [INFO] __main__: [96m2025-12-24T16:08:44.288565Z[0m [92m[INFO][0m [94m__main__[0m [97mmarket_status[0m
+  [95mbid[0m=[93m0.989[0m
+  [95mask[0m=[93m0.99[0m
+  [95mspread_bps[0m=[93m10[0m
+
+2025-12-24 21:08:44,299 [WARNING] src.market_maker.quote_engine: [96m2025-12-24T16:08:44.299300Z[0m [93m[WARNING][0m [94mquote_engine[0m [97mnegative_edge_detected[0m
+  [95mtotal_cost[0m=[93m0.999[0m
+  [95myes_p[0m=[93m0.989[0m
+  [95mno_p[0m=[93m0.01[0m
+
+2025-12-24 21:08:44,299 [INFO] src.market_maker.quote_engine: [96m2025-12-24T16:08:44.299300Z[0m [92m[INFO][0m [94mquote_engine[0m [97mquotes_generated[0m
+  [95medge_per_contract[0m=[93m0.003[0m
+  [95myes_price[0m=[93m0.988[0m
+  [95mno_price[0m=[93m0.009[0m
+  [95mis_balanced[0m=[93mTrue[0m
+
+2025-12-24 21:08:44,299 [INFO] __main__: [96m2025-12-24T16:08:44.299300Z[0m [92m[INFO][0m [94m__main__[0m [97mquote_yes[0m
+  [95mside[0m=[93mBUY[0m
+  [95mprice[0m=[93m0.988[0m
+  [95msize[0m=[93m100.0[0m
+  [95mdist_bps[0m=[93m10[0m
+
+2025-12-24 21:08:44,300 [INFO] __main__: [96m2025-12-24T16:08:44.300304Z[0m [92m[INFO][0m [94m__main__[0m [97mquote_no[0m
+  [95mside[0m=[93mBUY[0m
+  [95mprice[0m=[93m0.009[0m
+  [95msize[0m=[93m100.0[0m
+  [95mdist_bps[0m=[93m1000[0m
+
+2025-12-24 21:08:49,314 [DEBUG] httpcore.connection: close.started
+2025-12-24 21:08:49,316 [DEBUG] httpcore.connection: close.complete
+2025-12-24 21:08:49,316 [DEBUG] httpcore.connection: connect_tcp.started host='gamma-api.polymarket.com' port=443 local_address=None timeout=30.0 socket_options=None
+2025-12-24 21:08:49,362 [DEBUG] httpcore.connection: connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x0000017889A8BCD0>
+2025-12-24 21:08:49,362 [DEBUG] httpcore.connection: start_tls.started ssl_context=<ssl.SSLContext object at 0x00000178897CAF40> server_hostname='gamma-api.polymarket.com' timeout=30.0
+2025-12-24 21:08:49,406 [DEBUG] httpcore.connection: start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x0000017889A8BA60>
+2025-12-24 21:08:49,406 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'GET']>
+2025-12-24 21:08:49,406 [DEBUG] httpcore.http11: send_request_headers.complete
+2025-12-24 21:08:49,406 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'GET']>
+2025-12-24 21:08:49,406 [DEBUG] httpcore.http11: send_request_body.complete
+2025-12-24 21:08:49,406 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'GET']>
+2025-12-24 21:08:49,740 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Wed, 24 Dec 2025 16:08:48 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Content-Encoding', b'gzip'), (b'Vary', b'Accept-Encoding'), (b'cf-cache-status', b'DYNAMIC'), (b'Strict-Transport-Security', b'max-age=7776000; includeSubDomains'), (b'Server', b'cloudflare'), (b'CF-RAY', b'9b315c04e8e9bcb1-ALA'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-12-24 21:08:49,740 [INFO] httpx: HTTP Request: GET https://gamma-api.polymarket.com/markets/516818 "HTTP/1.1 200 OK"
+2025-12-24 21:08:49,740 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'GET']>
+2025-12-24 21:08:49,740 [DEBUG] httpcore.http11: receive_response_body.complete
+2025-12-24 21:08:49,740 [DEBUG] httpcore.http11: response_closed.started
+2025-12-24 21:08:49,740 [DEBUG] httpcore.http11: response_closed.complete
+2025-12-24 21:08:49,740 [INFO] __main__: [96m2025-12-24T16:08:49.740231Z[0m [92m[INFO][0m [94m__main__[0m [97mmarket_status[0m
+  [95mbid[0m=[93m0.989[0m
+  [95mask[0m=[93m0.99[0m
+  [95mspread_bps[0m=[93m10[0m
+
+2025-12-24 21:08:49,740 [WARNING] src.market_maker.quote_engine: [96m2025-12-24T16:08:49.740231Z[0m [93m[WARNING][0m [94mquote_engine[0m [97mnegative_edge_detected[0m
+  [95mtotal_cost[0m=[93m0.999[0m
+  [95myes_p[0m=[93m0.989[0m
+  [95mno_p[0m=[93m0.01[0m
+
+2025-12-24 21:08:49,740 [INFO] src.market_maker.quote_engine: [96m2025-12-24T16:08:49.740231Z[0m [92m[INFO][0m [94mquote_engine[0m [97mquotes_generated[0m
+  [95medge_per_contract[0m=[93m0.003[0m
+  [95myes_price[0m=[93m0.988[0m
+  [95mno_price[0m=[93m0.009[0m
+  [95mis_balanced[0m=[93mTrue[0m
+
+2025-12-24 21:08:49,740 [INFO] __main__: [96m2025-12-24T16:08:49.740231Z[0m [92m[INFO][0m [94m__main__[0m [97mquote_yes[0m
+  [95mside[0m=[93mBUY[0m
+  [95mprice[0m=[93m0.988[0m
+  [95msize[0m=[93m100.0[0m
+  [95mdist_bps[0m=[93m10[0m
+
+2025-12-24 21:08:49,740 [INFO] __main__: [96m2025-12-24T16:08:49.740231Z[0m [92m[INFO][0m [94m__main__[0m [97mquote_no[0m
+  [95mside[0m=[93mBUY[0m
+  [95mprice[0m=[93m0.009[0m
+  [95msize[0m=[93m100.0[0m
+  [95mdist_bps[0m=[93m1000[0m
+
+2025-12-24 21:08:54,748 [DEBUG] httpcore.connection: close.started
+2025-12-24 21:08:54,748 [DEBUG] httpcore.connection: close.complete
+2025-12-24 21:08:54,748 [DEBUG] httpcore.connection: connect_tcp.started host='gamma-api.polymarket.com' port=443 local_address=None timeout=30.0 socket_options=None
+2025-12-24 21:08:54,873 [DEBUG] httpcore.connection: connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x0000017889A95090>
+2025-12-24 21:08:54,873 [DEBUG] httpcore.connection: start_tls.started ssl_context=<ssl.SSLContext object at 0x00000178897CAF40> server_hostname='gamma-api.polymarket.com' timeout=30.0
+2025-12-24 21:08:54,948 [DEBUG] httpcore.connection: start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x0000017889A94E20>
+2025-12-24 21:08:54,948 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'GET']>
+2025-12-24 21:08:54,948 [DEBUG] httpcore.http11: send_request_headers.complete
+2025-12-24 21:08:54,948 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'GET']>
+2025-12-24 21:08:54,953 [DEBUG] httpcore.http11: send_request_body.complete
+2025-12-24 21:08:54,953 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'GET']>
+2025-12-24 21:08:55,349 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Wed, 24 Dec 2025 16:08:54 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Content-Encoding', b'gzip'), (b'Vary', b'Accept-Encoding'), (b'cf-cache-status', b'DYNAMIC'), (b'Strict-Transport-Security', b'max-age=7776000; includeSubDomains'), (b'Server', b'cloudflare'), (b'CF-RAY', b'9b315c27a8f4bca0-ALA'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-12-24 21:08:55,349 [INFO] httpx: HTTP Request: GET https://gamma-api.polymarket.com/markets/516818 "HTTP/1.1 200 OK"
+2025-12-24 21:08:55,349 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'GET']>
+2025-12-24 21:08:55,349 [DEBUG] httpcore.http11: receive_response_body.complete
+2025-12-24 21:08:55,349 [DEBUG] httpcore.http11: response_closed.started
+2025-12-24 21:08:55,349 [DEBUG] httpcore.http11: response_closed.complete
+2025-12-24 21:08:55,349 [INFO] __main__: [96m2025-12-24T16:08:55.349464Z[0m [92m[INFO][0m [94m__main__[0m [97mmarket_status[0m
+  [95mbid[0m=[93m0.989[0m
+  [95mask[0m=[93m0.99[0m
+  [95mspread_bps[0m=[93m10[0m
+
+2025-12-24 21:08:55,349 [WARNING] src.market_maker.quote_engine: [96m2025-12-24T16:08:55.349464Z[0m [93m[WARNING][0m [94mquote_engine[0m [97mnegative_edge_detected[0m
+  [95mtotal_cost[0m=[93m0.999[0m
+  [95myes_p[0m=[93m0.989[0m
+  [95mno_p[0m=[93m0.01[0m
+
+2025-12-24 21:08:55,349 [INFO] src.market_maker.quote_engine: [96m2025-12-24T16:08:55.349464Z[0m [92m[INFO][0m [94mquote_engine[0m [97mquotes_generated[0m
+  [95medge_per_contract[0m=[93m0.003[0m
+  [95myes_price[0m=[93m0.988[0m
+  [95mno_price[0m=[93m0.009[0m
+  [95mis_balanced[0m=[93mTrue[0m
+
+2025-12-24 21:08:55,349 [INFO] __main__: [96m2025-12-24T16:08:55.349464Z[0m [92m[INFO][0m [94m__main__[0m [97mquote_yes[0m
+  [95mside[0m=[93mBUY[0m
+  [95mprice[0m=[93m0.988[0m
+  [95msize[0m=[93m100.0[0m
+  [95mdist_bps[0m=[93m10[0m
+
+2025-12-24 21:08:55,349 [INFO] __main__: [96m2025-12-24T16:08:55.349464Z[0m [92m[INFO][0m [94m__main__[0m [97mquote_no[0m
+  [95mside[0m=[93mBUY[0m
+  [95mprice[0m=[93m0.009[0m
+  [95msize[0m=[93m100.0[0m
+  [95mdist_bps[0m=[93m1000[0m
+
+2025-12-24 21:09:00,352 [DEBUG] httpcore.connection: close.started
+2025-12-24 21:09:00,352 [DEBUG] httpcore.connection: close.complete
+2025-12-24 21:09:00,352 [DEBUG] httpcore.connection: close.started
+2025-12-24 21:09:00,352 [DEBUG] httpcore.connection: close.complete
