@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PolyMarket Pro Terminal</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="terminal-grid">
+        <header class="header">
+            <div class="logo">POLYBOT <span>PRO</span></div>
+            <div id="market-title" class="market-name">Загрузка рынка...</div>
+            <div class="status-box"><span id="dot"></span> <span id="status-text">LIVE</span></div>
+        </header>
+
+        <aside class="markets-panel">
+            <div class="panel-label">ACTIVE MARKETS</div>
+            <div id="market-list" class="list-content"></div>
+        </aside>
+
+        <main class="main-chart">
+            <div class="panel-label">PRICE CHART (BID/ASK)</div>
+            <div class="chart-container">
+                <canvas id="priceChart"></canvas>
+            </div>
+        </main>
+
+        <aside class="orderbook-panel">
+            <div class="panel-label">ORDERBOOK (L2)</div>
+            <div class="ob-container">
+                <div class="ob-header"><span>Price</span><span>Size</span></div>
+                <div id="asks" class="ob-side"></div>
+                <div id="current-spread" class="spread-divider">---</div>
+                <div id="bids" class="ob-side"></div>
+            </div>
+        </aside>
+
+        <footer class="logs-panel">
+            <div class="panel-label">BOT ACTIVITY LOG</div>
+            <div id="bot-logs" class="log-content"></div>
+        </footer>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
