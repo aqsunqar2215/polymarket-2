@@ -34,15 +34,15 @@ class InventoryManager:
         """Смещает цену в зависимости от накопленного инвентаря."""
         exposure = self.inventory.net_exposure_usd
         # 0.005 означает смещение на 0.5 цента при существенном перекосе
-        sensitivity = 0.005 
+        sensitivity = 0.005
         skew_factor = exposure / max(self.max_exposure_usd, 1.0)
         adjustment = round(skew_factor * sensitivity, 3)
-        
+
         if is_yes:
             new_price = price - adjustment
         else:
             new_price = price + adjustment
-            
+
         return round(max(0.001, min(0.999, new_price)), 3)
 
     def get_quote_size_yes(self, base_size: float, price: float) -> float:

@@ -23,7 +23,13 @@ class Settings(BaseSettings):
         default="wss://ws-subscriptions-clob.polymarket.com/ws/market", description="Polymarket WebSocket URL"
     )
     
-    # Authentication
+    # --- НОВЫЕ ПОЛЯ ДЛЯ АУТЕНТИФИКАЦИИ (L2) ---
+    # Эти поля теперь будут считываться из вашего .env
+    polymarket_api_key: str = Field(default="", description="API Key from generate_creds.py")
+    polymarket_api_secret: str = Field(default="", description="API Secret from generate_creds.py")
+    polymarket_api_passphrase: str = Field(default="", description="API Passphrase from generate_creds.py")
+    
+    # Authentication (L1)
     private_key: str = Field(description="Ethereum private key for signing orders")
     public_address: str = Field(description="Ethereum public address")
     
@@ -87,7 +93,6 @@ class Settings(BaseSettings):
     def get_market_id(self) -> str | None:
         """Extract market ID from URL if provided, otherwise return market_id"""
         if self.market_url:
-            # Polymarket URLs look like: https://polymarket.com/market/0x...
             parts = self.market_url.rstrip('/').split('/')
             if parts:
                 return parts[-1]

@@ -12,11 +12,11 @@ logger = structlog.get_logger(__name__)
 
 class MarketDiscovery:
     """Find best markets matching criteria"""
-    
+
     def __init__(self, api_url: str = "https://gamma-api.polymarket.com"):
         self.api_url = api_url
         self.client = httpx.AsyncClient(timeout=30.0)
-    
+
     async def find_best_market(
         self,
         min_volume_24h: float = 10000,
@@ -25,7 +25,7 @@ class MarketDiscovery:
         """
         Find the best (highest volume) active market matching criteria.
         Uses EXACT logic from find_best_markets.py
-        
+
         Returns:
             Market dict with id, question, volume_24h, spread_bps, etc.
             or None if no market found
@@ -37,45 +37,45 @@ class MarketDiscovery:
                 params={"active": "true", "closed": "false"}
             )
             response.raise_for_status()
-            
+
             markets = response.json()
-            
+
             if not isinstance(markets, list):
                 logger.error("invalid_markets_response", response_type=type(markets))
                 return None
-            
+
             logger.debug("markets_fetched", total_count=len(markets))
-            
+
             candidates = []
-            
+
             for market in markets:
                 if not isinstance(market, dict):
                     continue
-                
+
                 market_id = market.get('id')
                 question = market.get('question', '')
                 active = market.get('active', False)
                 closed = market.get('closed', False)
-                
+
                 best_bid = float(market.get('bestBid', 0))
                 best_ask = float(market.get('bestAsk', 1))
                 volume_24h = float(market.get('volume24hr', 0) or 0)
                 liquidity = float(market.get('liquidity', 0) or 0)
-                
+
                 # Calculate spread in bps - ТОЧНО КАК В СКРИПТЕ
                 if best_bid > 0 and best_ask > 0 and best_ask > best_bid:
                     spread_bps = int((best_ask - best_bid) / ((best_bid + best_ask) / 2) * 10000)
                 else:
                     spread_bps = 10000
-                
+
                 # Only active and open markets
                 if not active or closed:
                     continue
-                
+
                 # Only if has some volume
                 if volume_24h < 100:
                     continue
-                
+
                 candidates.append({
                     'id': market_id,
                     'question': question[:70],
@@ -85,20 +85,20 @@ class MarketDiscovery:
                     'bid': best_bid,
                     'ask': best_ask,
                 })
-            
+
             if not candidates:
                 logger.warning(
                     "no_candidates_found",
                     total_markets=len(markets),
                 )
                 return None
-            
+
             # Filter by criteria - ТОЧНО КАК В СКРИПТЕ
             filtered = [
-                m for m in candidates 
+                m for m in candidates
                 if m['volume_24h'] >= min_volume_24h and m['spread_bps'] <= max_spread_bps
             ]
-            
+
             if not filtered:
                 logger.warning(
                     "no_markets_match_criteria",
@@ -107,20 +107,20 @@ class MarketDiscovery:
                     num_candidates=len(candidates),
                 )
                 return None
-            
+
             # Sort by volume
             filtered.sort(key=lambda x: x['volume_24h'], reverse=True)
-            
+
             # Вернуть несколько рынков для выбора
             return {
                 "candidates": filtered[:10],  # Top 10 markets
                 "selected": filtered[0],  # Default: best one
             }
-            
+
         except Exception as e:
             logger.error("market_discovery_failed", error=str(e), exc_info=True)
             return None
-    
+
     async def interactive_market_selection(
         self,
         min_volume_24h: float = 10000,
@@ -128,7 +128,7 @@ class MarketDiscovery:
     ) -> str | None:
         """
         Find markets and ask user to select one interactively.
-        
+
         Returns:
             Selected market ID or None if cancelled
         """
@@ -139,37 +139,37 @@ class MarketDiscovery:
                 params={"active": "true", "closed": "false"}
             )
             response.raise_for_status()
-            
+
             markets = response.json()
-            
+
             if not isinstance(markets, list):
                 logger.error("invalid_markets_response", response_type=type(markets))
                 return None
-            
+
             candidates = []
-            
+
             for market in markets:
                 if not isinstance(market, dict):
                     continue
-                
+
                 active = market.get('active', False)
                 closed = market.get('closed', False)
-                
+
                 if not active or closed:
                     continue
-                
+
                 best_bid = float(market.get('bestBid', 0))
                 best_ask = float(market.get('bestAsk', 1))
                 volume_24h = float(market.get('volume24hr', 0) or 0)
-                
+
                 if volume_24h < 100:
                     continue
-                
+
                 if best_bid > 0 and best_ask > 0 and best_ask > best_bid:
                     spread_bps = int((best_ask - best_bid) / ((best_bid + best_ask) / 2) * 10000)
                 else:
                     spread_bps = 10000
-                
+
                 if volume_24h >= min_volume_24h and spread_bps <= max_spread_bps:
                     candidates.append({
                         'id': market.get('id'),
@@ -180,20 +180,20 @@ class MarketDiscovery:
                         'bid': best_bid,
                         'ask': best_ask,
                     })
-            
+
             if not candidates:
                 logger.error("no_markets_found")
                 print("\n❌ No markets found matching criteria")
                 return None
-            
+
             # Sort by volume
             candidates.sort(key=lambda x: x['volume_24h'], reverse=True)
-            
+
             # Display selection menu
             print("\n" + "="*120)
             print("🎯 SELECT A MARKET TO TRADE")
             print("="*120 + "\n")
-            
+
             for i, m in enumerate(candidates[:15], 1):
                 print(f"{i:2d}. Market ID: {m['id']}")
                 print(f"    Question: {m['question']}")
@@ -202,18 +202,18 @@ class MarketDiscovery:
                 print(f"    Spread: {m['spread_bps']} bps")
                 print(f"    Bid/Ask: {m['bid']:.6f} / {m['ask']:.6f}")
                 print()
-            
+
             print("="*120)
-            
+
             # Get user input
             while True:
                 try:
                     choice = input("Enter market number (or 'q' to quit): ").strip()
-                    
+
                     if choice.lower() == 'q':
                         logger.info("market_selection_cancelled")
                         return None
-                    
+
                     idx = int(choice) - 1
                     if 0 <= idx < len(candidates):
                         selected = candidates[idx]
@@ -233,10 +233,10 @@ class MarketDiscovery:
                         print(f"❌ Invalid choice. Please enter a number between 1 and {len(candidates)}")
                 except ValueError:
                     print("❌ Invalid input. Please enter a number or 'q'")
-                    
+
         except Exception as e:
             logger.error("interactive_selection_failed", error=str(e), exc_info=True)
             return None
-    
+
     async def close(self):
         await self.client.aclose()
