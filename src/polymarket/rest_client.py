@@ -153,8 +153,12 @@ class PolymarketRestClient:
                 l2_data = {"yes": yes_l2, "no": await self.get_l2_orderbook(token_ids[1])}
 
         return {
-            "market_id": market_id, "best_bid": best_bid, "best_ask": best_ask,
-            "l2_data": l2_data, "l2_available": l2_available, "token_ids": token_ids or []
+            "market_id": market_id,
+            "best_bid": best_bid,
+            "best_ask": best_ask,
+            "l2_data": l2_data,
+            "l2_available": l2_available,
+            "token_ids": token_ids or []
         }
 
     async def close(self):

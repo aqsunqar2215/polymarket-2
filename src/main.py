@@ -13,6 +13,7 @@ from src.config import Settings, get_settings
 from src.inventory.inventory_manager import InventoryManager
 from src.logging_config import configure_logging
 from src.market_maker.quote_engine import QuoteEngine
+from src.market_maker.advanced_quote_engine import AdvancedQuoteEngine  # НОВОЕ
 from src.market_discovery import MarketDiscovery
 from src.polymarket.rest_client import PolymarketRestClient
 from src.polymarket.websocket_orderbook import (
@@ -34,7 +35,7 @@ class MarketMakerBot:
             settings.min_exposure_usd,
             settings.target_inventory_balance,
         )
-        self.quote_engine = QuoteEngine(settings, self.inventory_manager)
+        self.quote_engine = AdvancedQuoteEngine(settings, self.inventory_manager)  # ОБНОВЛЕНО
         self.ws_orderbook = PolymarketWebSocketOrderbook()
 
         self.market_id: str | None = None
@@ -102,8 +103,14 @@ class MarketMakerBot:
                 await self.rest_client.cancel_all_orders(self.market_id)
 
                 # 4. Генерация новых котировок (Top-of-book logic внутри engine)
-                yes_quote, no_quote = self.quote_engine.generate_quotes(
-                    self.market_id, bid, ask, yes_token, no_token, orderbook_data=orderbook
+                yes_quote, no_quote = self.quote_engine.generate_advanced_quotes(
+                    market_id=self.market_id,
+                    mid_price=(bid + ask) / 2.0,
+                    best_bid=bid,
+                    best_ask=ask,
+                    yes_token_id=yes_token,
+                    no_token_id=no_token,
+                    orderbook_data=orderbook,
                 )
 
                 # 5. Parallel Order Placement: Отправляем ордера одновременно
